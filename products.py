@@ -12,4 +12,5 @@ while True:
 	#products.append([name, price])綜合以上程式碼
 print(products)
 
-products[0][0] #大清單第0格(商品+價錢) -->小清單的第0格(商品)
+for p in products:
+	print(p[0], '的價格是', p[1])
