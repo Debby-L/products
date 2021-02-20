@@ -1,3 +1,15 @@
+#讀取檔案
+products = []
+with open('products.csv', 'r', encoding='utf-8') as f:
+	for line in f:
+		if '商品,價格' in line:
+			continue  #只能再迴圈內,繼續下一回
+		name, price = line.strip().split(',')
+		# strip()除掉, split('')分割,顯示結果是清單
+		products.append([name, price])
+print(products)
+
+#請使用者輸入
 products = []
 while True:
 	name = input('請輸入商品名稱: ')
@@ -13,9 +25,11 @@ while True:
 	#products.append([name, price])綜合以上程式碼
 print(products)
 
+#列出所有商品購買紀錄
 for p in products:
 	print(p[0], '的價格是', p[1])
 
+#寫入檔案
 with open('products.csv', 'w', encoding= 'utf-8') as f: 
 # txt = text, csv = excel
 #解決亂碼問題, encoding= 'utf-8'解決中文便亂碼問題
