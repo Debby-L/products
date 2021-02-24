@@ -1,13 +1,23 @@
+#加入作業系統檢查檔案
+import os 
+
 #讀取檔案
-products = []
-with open('products.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue  #只能再迴圈內,繼續下一回
-		name, price = line.strip().split(',')
-		# strip()除掉, split('')分割,顯示結果是清單
-		products.append([name, price])
-print(products)
+products = [] #無論是否有找到檔案，先列清單，後面還可以寫入
+if os.path. isfile('products.csv'): #輸入相對入徑檢查是不是在目前資料夾中，如果要檢查是否在莊志忠則需要寫入絕對入徑	
+	print('yeah! 找到檔案了!')
+	with open('products.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue  #只能再迴圈內,繼續下一回
+			name, price = line.strip().split(',')
+			# strip()除掉, split('')分割,顯示結果是清單
+			products.append([name, price])
+	print(products)
+
+
+else:
+	print('找不到檔案....')
+
 
 #請使用者輸入
 products = []
